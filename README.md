@@ -1,5 +1,7 @@
 # public-claude-skills
 
+![version](https://img.shields.io/badge/version-2.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+
 Claude Code で使えるカスタムスキルのコレクションです。
 
 ## スキル一覧
@@ -60,6 +62,18 @@ cp -r public-claude-skills/skills/* ~/.claude/skills/
 | Mac / Linux | `~/.claude/skills/` |
 | Windows（ネイティブ） | `%USERPROFILE%\.claude\skills\` |
 | Windows（WSL） | `~/.claude/skills/` |
+
+---
+
+## CHANGELOG
+
+### v2.0.0 — 2026-04-05
+
+- スキルの選択肢を見直し、よく使う項目に絞り機能をブラッシュアップ
+
+### v1.0.0 — 2026-04-04
+
+- 初版公開
 
 ---
 
