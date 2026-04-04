@@ -4,73 +4,51 @@ Claude Code で使えるカスタムスキルのコレクションです。
 
 ## スキル一覧
 
-### [`/token-saver`](skills/token-saver/SKILL.md)
+### [`/token-saver`](skills/token-saver/SKILL.md) — トークン消費最適化
 
-ClaudeCode のトークン消費量を抑えるスキル。
+Claude Code のコスト増加の根本原因は「コンテキストの肥大化」。4つのモードで構造的に対処します。
 
 | モード | コマンド | 内容 |
 |--------|---------|------|
-| チェックリスト | `/token-saver` | コスト削減6つの対策を表示 |
-| セッション引き継ぎ | `/token-saver handoff` | 次セッション用の引き継ぎサマリーを生成 |
-| CLAUDE.md監査 | `/token-saver audit` | CLAUDE.md の肥大化を診断・削減提案 |
+| チェックリスト | `/token-saver` | すぐ実行できる3つのコスト削減策を表示し、選択・実行まで案内 |
+| セッション引き継ぎ | `/token-saver handoff` | 現在の会話を要約し、次セッションにそのまま貼れる引き継ぎドキュメントを生成 |
+| CLAUDE.md 監査 | `/token-saver audit` | グローバル・プロジェクトの CLAUDE.md を読み込み、肥大化箇所を診断して削減提案 |
+| モデル選択 | `/token-saver model` | タスク別の最適モデル（Haiku / Sonnet / Opus）を表示し、今のタスクに合ったモデルを提案 |
 
-**トリガーワード：** 「コストを節約したい」「トークンが多い」「セッションをリセットしたい」「CLAUDE.mdを見直したい」
+**トリガーワード：** 「コストを節約したい」「トークン消費が気になる」「セッションをリセットしたい」「CLAUDE.md を見直したい」「モデルを選びたい」
 
 ---
 
 ## インストール方法
 
-### Mac
-
-#### Claude Code（ターミナル / デスクトップアプリ）
+### Mac / Linux
 
 ```bash
-# リポジトリをクローン
 git clone https://github.com/thunderblog/public-claude-skills.git
-
-# スキルディレクトリを作成してコピー
 mkdir -p ~/.claude/skills
 cp -r public-claude-skills/skills/* ~/.claude/skills/
 ```
 
-#### claude.ai（Web）
-
-1. [claude.ai/code](https://claude.ai/code) を開く
-2. 左サイドバーの **Settings（設定）** → **Skills** を開く
-3. 各スキルの `SKILL.md` の内容をコピーして貼り付けて保存
-
----
-
-### Windows
-
-#### Claude Code（ターミナル / デスクトップアプリ）
-
-**PowerShell で実行：**
+### Windows（PowerShell）
 
 ```powershell
-# リポジトリをクローン
 git clone https://github.com/thunderblog/public-claude-skills.git
-
-# スキルディレクトリを作成してコピー
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude\skills"
 Copy-Item -Recurse public-claude-skills\skills\* "$env:USERPROFILE\.claude\skills\"
 ```
 
-**WSL（Windows Subsystem for Linux）を使っている場合：**
+### Windows（WSL）
 
 ```bash
-# リポジトリをクローン
 git clone https://github.com/thunderblog/public-claude-skills.git
-
-# スキルディレクトリを作成してコピー
 mkdir -p ~/.claude/skills
 cp -r public-claude-skills/skills/* ~/.claude/skills/
 ```
 
-#### claude.ai（Web）
+### claude.ai（Web）
 
 1. [claude.ai/code](https://claude.ai/code) を開く
-2. 左サイドバーの **Settings（設定）** → **Skills** を開く
+2. 左サイドバーの **Settings** → **Skills** を開く
 3. 各スキルの `SKILL.md` の内容をコピーして貼り付けて保存
 
 ---
