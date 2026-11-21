@@ -1,6 +1,6 @@
 # public-claude-skills
 
-![version](https://img.shields.io/badge/version-2.1.1-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-3.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Claude Code で使えるカスタムスキルのコレクションです。
 
@@ -12,11 +12,24 @@ Claude Code のコスト増加の根本原因は「コンテキストの肥大�
 
 | モード | コマンド | 内容 |
 |--------|---------|------|
-| チェックリスト | `/token-saver` | すぐ実行できる3つのコスト削減策を表示し、選択・実行まで案内 |
+| チェックリスト | `/token-saver` | `/context`・`/clear`・`/compact` など組み込みコマンドを含む5つのコスト削減策を表示し、選択・実行まで案内 |
 | セッション引き継ぎ | `/token-saver handoff` | 現在の会話を要約し、`tasks/handoff-YYYY-MM-DD.md` に保存 |
-| 引き継ぎ読み込み | `/token-saver load` | 保存済みの引き継ぎファイルを自動検出して読み込み、前回のコンテキストを復元 |
-| CLAUDE.md 監査 | `/token-saver audit` | グローバル・プロジェクトの CLAUDE.md を読み込み、肥大化箇所を診断して削減提案 |
-| モデル選択 | `/token-saver model` | タスク別の最適モデル（Haiku / Sonnet / Opus）を表示し、今のタスクに合ったモデルを提案 |
+| 引き継ぎ読み込み | `/token-saver load` | 保存済みの引き継ぎファイルを自動検出して読み込み、前回のコンテキストを復元（読込後は `tasks/archive/` へ移動可） |
+| CLAUDE.md 監査 | `/token-saver audit` | CLAUDE.md・CLAUDE.local.md・`@import` 先・MEMORY.md などを診断して削減提案（不在時は `/init` 等で新規作成支援） |
+| モデル選択 | `/token-saver model` | タスク別の最適モデル（Haiku / Sonnet / Opus / Fable）を表示し、今のタスクに合ったモデルを提案 |
+
+**構成：** `SKILL.md` はモード判定のみ。各モードの手順は `references/*.md` に分割し、使うモードの分だけ読み込むためスキル自体の消費トークンを抑えています。
+
+```
+skills/token-saver/
+├── SKILL.md
+└── references/
+    ├── handoff.md
+    ├── load.md
+    ├── audit.md
+    ├── check.md
+    └── model.md
+```
 
 **トリガーワード：** 「コストを節約したい」「トークン消費が気になる」「セッションをリセットしたい」「引き継ぎ」「前回の続き」「CLAUDE.md を見直したい」「モデルを選びたい」
 
@@ -67,6 +80,16 @@ cp -r public-claude-skills/skills/* ~/.claude/skills/
 ---
 
 ## CHANGELOG
+
+### v3.0.0 — 2026-11-21
+
+- `SKILL.md` をモード判定のみに縮小し、各モードを `references/*.md` に分割（約400行 → 約30行＋必要分のみ読込）
+- 確認ステップを最大2回（選択 → 最終OK）に削減
+- `check` に `/context`・`/cost`・`/clear`・`/compact` を追加、`handoff` 保存後に `/clear` → `load` の流れを案内
+- `audit` の対象に `.claude/CLAUDE.md`・`CLAUDE.local.md`・`@import` 先・サブディレクトリ CLAUDE.md・MEMORY.md を追加、トークン見積もりルールを明記
+- CLAUDE.md 新規作成は WebSearch を廃止し `/init` を第一推奨に
+- `load` 後の `rm` 削除を廃止し、`tasks/archive/` への移動に変更
+- `model` に Fable（最上位・長時間エージェント作業向け）を追加
 
 ### v2.1.1 — 2026-11-21
 
