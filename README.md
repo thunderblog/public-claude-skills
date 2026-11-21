@@ -1,6 +1,6 @@
 # public-claude-skills
 
-![version](https://img.shields.io/badge/version-3.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-3.1.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Claude Code で使えるカスタムスキルのコレクションです。
 
@@ -63,9 +63,12 @@ cp -r public-claude-skills/skills/* ~/.claude/skills/
 
 ### claude.ai（Web）
 
-1. [claude.ai/code](https://claude.ai/code) を開く
-2. 左サイドバーの **Settings** → **Skills** を開く
-3. 各スキルの `SKILL.md` の内容をコピーして貼り付けて保存
+1. スキルフォルダ（例: `token-saver/`）を、フォルダごと ZIP に圧縮する（ZIP 直下に `token-saver/SKILL.md` が来る構成）
+2. [claude.ai](https://claude.ai) の **Settings → Capabilities** でコード実行（「Create and edit files」）を有効にする
+3. **Customize → Skills** で「+」→「Create skill」→ アップロードを選び、ZIP を指定する
+4. 一覧に追加されたスキルを有効化する
+
+> Pro / Max / Team / Enterprise などの有料プランが必要。claude.ai にアップロードしたスキルは Claude Code とは同期されない。メニュー名は UI 更新で変わることがある（[公式ヘルプ](https://support.claude.com/en/articles/12512180-use-skills-in-claude)）。
 
 ---
 
@@ -80,6 +83,13 @@ cp -r public-claude-skills/skills/* ~/.claude/skills/
 ---
 
 ## CHANGELOG
+
+### v3.1.0 — 2026-11-21
+
+- `handoff` に「試して失敗したこと」「git 状態」を追加、`tasks/` の `.gitignore` 推奨を案内
+- トリガーワードを具体的なフレーズに絞り、誤発火を抑制
+- `.gitattributes` で改行コードを LF に統一
+- README の claude.ai（Web）インストール手順を ZIP アップロード方式に修正
 
 ### v3.0.0 — 2026-11-21
 

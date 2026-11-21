@@ -1,6 +1,6 @@
 ---
 name: token-saver
-description: ClaudeCodeのトークン消費量を抑えるスキル。セッション引き継ぎサマリーの生成とファイル保存・引継書の読み込み・CLAUDE.mdの肥大化監査・モデル選択アドバイス・コスト効率化チェックリストの表示を行う。ユーザーが「コストを節約したい」「セッションをリセットしたい」「引き継ぎ」「前回の続き」「引継書を読む」「CLAUDE.mdを見直したい」「トークン消費が気になる」「モデルを選びたい」「どのモデルがいい？」「/token-saver」と言ったときに使用する。
+description: ClaudeCodeのトークン消費量を抑えるスキル。セッション引き継ぎサマリーの生成とファイル保存・引継書の読み込み・CLAUDE.mdの肥大化監査・モデル選択アドバイス・コスト効率化チェックリストの表示を行う。ユーザーが「コストを節約したい」「セッションをリセットしたい」「セッションを引き継ぎたい」「引継書を作って」「前回の続きから再開」「引継書を読む」「CLAUDE.mdを見直したい」「トークン消費が気になる」「モデルを選びたい」「どのモデルがいい？」「/token-saver」と言ったときに使用する。
 ---
 
 # /token-saver — トークン消費最適化スキル
@@ -13,11 +13,11 @@ ClaudeCodeのコスト増加の根本原因は「コンテキストの肥大化�
 
 | モード | トリガーワード | 手順ファイル |
 |--------|--------------|------------|
-| **handoff** | 「リセット」「引き継ぎ」`/token-saver handoff [保存先パス]` | `references/handoff.md` |
-| **load** | 「引継書を読む」「前回の続き」`/token-saver load [ファイルパス]` | `references/load.md` |
-| **audit** | 「監査」「CLAUDE.md」`/token-saver audit` | `references/audit.md` |
-| **check** | 引数なし・「節約」「チェック」`/token-saver check` | `references/check.md` |
-| **model** | 「モデル」「どのモデル」`/token-saver model` | `references/model.md` |
+| **handoff** | 「セッションをリセット」「引継書を作って」「セッションを引き継ぎたい」`/token-saver handoff [保存先パス]` | `references/handoff.md` |
+| **load** | 「引継書を読む」「前回の続きから再開」`/token-saver load [ファイルパス]` | `references/load.md` |
+| **audit** | 「CLAUDE.md を監査」「CLAUDE.md を見直したい」`/token-saver audit` | `references/audit.md` |
+| **check** | 引数なし・「コストを節約したい」「トークン消費が気になる」`/token-saver check` | `references/check.md` |
+| **model** | 「モデルを選びたい」「どのモデルがいい？」`/token-saver model` | `references/model.md` |
 
 ## Step 2：手順ファイルを読んで実行する
 
