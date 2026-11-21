@@ -1,6 +1,6 @@
 # public-claude-skills
 
-![version](https://img.shields.io/badge/version-2.1.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-2.1.1-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Claude Code で使えるカスタムスキルのコレクションです。
 
@@ -67,6 +67,13 @@ cp -r public-claude-skills/skills/* ~/.claude/skills/
 ---
 
 ## CHANGELOG
+
+### v2.1.1 — 2026-11-21
+
+- リポジトリの `SKILL.md` に v2.1.0 の変更（`load` モード・`handoff` のファイル保存）を反映（未反映だった）
+- `model` モードからバージョン番号・モデルIDのハードコードを削除し、`/model` と公式ドキュメント参照に変更
+- `audit` 新規作成テンプレートのコードブロック入れ子による表示崩れを修正
+- モード数の記述（3→5）とモード記号（A〜E）を整理
 
 ### v2.1.0 — 2026-04-18
 
